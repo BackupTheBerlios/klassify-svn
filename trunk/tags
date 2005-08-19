@@ -1,0 +1,256 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+CATEGORY_H	src/category.h	/^#define CATEGORY_H$/;"	d
+CLASSIFIER_H	src/classifier.h	/^#define CLASSIFIER_H$/;"	d
+CLASSIFY_H	src/classify.h	/^#define CLASSIFY_H$/;"	d
+Category	src/category.cpp	/^Category::Category(QString name) {$/;"	f	class:Category
+Category	src/category.h	/^        Category(QString name);$/;"	p	class:Category
+Category	src/category.h	/^class Category {$/;"	c
+Classifier	src/classifier.cpp	/^Classifier::Classifier()$/;"	f	class:Classifier
+Classifier	src/classifier.cpp	/^Classifier::Classifier(QString id, const QStringList &categories)$/;"	f	class:Classifier
+Classifier	src/classifier.h	/^        Classifier();$/;"	p	class:Classifier
+Classifier	src/classifier.h	/^        Classifier(QString id, const QStringList &categories);$/;"	p	class:Classifier
+Classifier	src/classifier.h	/^class Classifier {$/;"	c
+Classify	src/classify.h	/^        Classify();$/;"	p	class:Classify
+Classify	src/classify.h	/^class Classify {$/;"	c
+DCOP_CLASSIFIER_H	src/dcop_classifier.h	/^#define DCOP_CLASSIFIER_H$/;"	d
+DUMMY_CLASSIFIER_H	src/dummy_classifier.h	/^#define DUMMY_CLASSIFIER_H$/;"	d
+DcopClassifier	src/dcop_classifier.cpp	/^DcopClassifier::DcopClassifier(QString id, QString dcopAddress) : Classifier(id, dcopAddress)$/;"	f	class:DcopClassifier
+DcopClassifier	src/dcop_classifier.h	/^        DcopClassifier(QString id, QString dcopAddress);$/;"	p	class:DcopClassifier
+DcopClassifier	src/dcop_classifier.h	/^class DcopClassifier : public Classifier {$/;"	c
+DummyClassifier	src/dummy_classifier.cpp	/^DummyClassifier::DummyClassifier(QString id, const QStringList &categories) : Classifier(id, categories)$/;"	f	class:DummyClassifier
+DummyClassifier	src/dummy_classifier.h	/^        DummyClassifier(QString id, const QStringList &categories);$/;"	p	class:DummyClassifier
+DummyClassifier	src/dummy_classifier.h	/^class DummyClassifier : public Classifier {$/;"	c
+HAVE_BOOLEAN	debug/config.h	/^#define HAVE_BOOLEAN$/;"	d
+HAVE_CRYPT	debug/config.h	/^#define HAVE_CRYPT /;"	d
+HAVE_DLFCN_H	debug/config.h	/^#define HAVE_DLFCN_H /;"	d
+HAVE_INTTYPES_H	debug/config.h	/^#define HAVE_INTTYPES_H /;"	d
+HAVE_LIBJPEG	debug/config.h	/^#define HAVE_LIBJPEG /;"	d
+HAVE_LIBPNG	debug/config.h	/^#define HAVE_LIBPNG /;"	d
+HAVE_LIBPTHREAD	debug/config.h	/^#define HAVE_LIBPTHREAD /;"	d
+HAVE_LIBZ	debug/config.h	/^#define HAVE_LIBZ /;"	d
+HAVE_MEMORY_H	debug/config.h	/^#define HAVE_MEMORY_H /;"	d
+HAVE_RES_INIT	debug/config.h	/^#define HAVE_RES_INIT /;"	d
+HAVE_SGI_STL	debug/config.h	/^#define HAVE_SGI_STL /;"	d
+HAVE_SNPRINTF	debug/config.h	/^#define HAVE_SNPRINTF /;"	d
+HAVE_STDINT_H	debug/config.h	/^#define HAVE_STDINT_H /;"	d
+HAVE_STDLIB_H	debug/config.h	/^#define HAVE_STDLIB_H /;"	d
+HAVE_STRINGS_H	debug/config.h	/^#define HAVE_STRINGS_H /;"	d
+HAVE_STRING_H	debug/config.h	/^#define HAVE_STRING_H /;"	d
+HAVE_SYS_STAT_H	debug/config.h	/^#define HAVE_SYS_STAT_H /;"	d
+HAVE_SYS_TYPES_H	debug/config.h	/^#define HAVE_SYS_TYPES_H /;"	d
+HAVE_UNISTD_H	debug/config.h	/^#define HAVE_UNISTD_H /;"	d
+HAVE_VSNPRINTF	debug/config.h	/^#define HAVE_VSNPRINTF /;"	d
+IceConnectionNumber	configure	/^IceConnectionNumber ();$/;"	f
+KDELIBSUFF	debug/config.h	/^#define KDELIBSUFF /;"	d
+KDEMAXPATHLEN	debug/config.h	/^#define KDEMAXPATHLEN /;"	d
+Makefile_am	admin/cvs.sh	/^Makefile_am()$/;"	f
+NAIVE_BAYESIAN_CLASSIFIER_H	src/naive_bayesian_classifier.h	/^#define NAIVE_BAYESIAN_CLASSIFIER_H$/;"	d
+NaiveBayesianClassifier	src/naive_bayesian_classifier.cpp	/^NaiveBayesianClassifier::NaiveBayesianClassifier(QString id, const QStringList &categories) : Classifier(id, categories)$/;"	f	class:NaiveBayesianClassifier
+NaiveBayesianClassifier	src/naive_bayesian_classifier.h	/^        NaiveBayesianClassifier(QString id, const QStringList &categories);$/;"	p	class:NaiveBayesianClassifier
+NaiveBayesianClassifier	src/naive_bayesian_classifier.h	/^class NaiveBayesianClassifier : public Classifier$/;"	c
+NaiveBayesianClassifierTest	src/naive_bayesian_classifier_test.h	/^class NaiveBayesianClassifierTest : public CppUnit::TestFixture  {$/;"	c
+PACKAGE	debug/config.h	/^#define PACKAGE /;"	d
+PACKAGE_BUGREPORT	debug/config.h	/^#define PACKAGE_BUGREPORT /;"	d
+PACKAGE_NAME	debug/config.h	/^#define PACKAGE_NAME /;"	d
+PACKAGE_STRING	debug/config.h	/^#define PACKAGE_STRING /;"	d
+PACKAGE_TARNAME	debug/config.h	/^#define PACKAGE_TARNAME /;"	d
+PACKAGE_VERSION	debug/config.h	/^#define PACKAGE_VERSION /;"	d
+SIZEOF_CHAR_P	debug/config.h	/^#define SIZEOF_CHAR_P /;"	d
+SIZEOF_INT	debug/config.h	/^#define SIZEOF_INT /;"	d
+SIZEOF_LONG	debug/config.h	/^#define SIZEOF_LONG /;"	d
+SIZEOF_SHORT	debug/config.h	/^#define SIZEOF_SHORT /;"	d
+SIZEOF_SIZE_T	debug/config.h	/^#define SIZEOF_SIZE_T /;"	d
+SIZEOF_UNSIGNED_LONG	debug/config.h	/^#define SIZEOF_UNSIGNED_LONG /;"	d
+STDC_HEADERS	debug/config.h	/^#define STDC_HEADERS /;"	d
+VERSION	debug/config.h	/^#define VERSION /;"	d
+__KLASSIFY_STUB__	debug/src/klassify_stub.h	/^#define __KLASSIFY_STUB__$/;"	d
+__svr4__	debug/config.h	/^#define __svr4__ /;"	d
+_klassify_H	src/klassify.h	/^#define _klassify_H$/;"	d
+addClassifier	debug/src/klassify_stub.cpp	/^void klassify_stub::addClassifier( QString arg0 )$/;"	f	class:klassify_stub
+addClassifier	debug/src/klassify_stub.h	/^    virtual void addClassifier( QString dcopClassifier );$/;"	p	class:klassify_stub
+addClassifier	src/klassify.cpp	/^void klassify::addClassifier(QString dcopAddress)$/;"	f	class:klassify
+addClassifier	src/klassify.h	/^		void addClassifier(QString dcopAddress);$/;"	p	class:klassify
+ask_user	admin/bcheck.pl	/^sub ask_user$/;"	s
+bailout	admin/bcheck.pl	/^sub bailout$/;"	s
+call_and_fix_autoconf	admin/cvs.sh	/^call_and_fix_autoconf()$/;"	f
+categories	src/classifier.h	/^        QStringList categories;$/;"	m	class:Classifier
+checkAutoconf	admin/detect-autoconf.sh	/^checkAutoconf()$/;"	f
+checkAutoheader	admin/detect-autoconf.sh	/^checkAutoheader()$/;"	f
+checkAutomakeAclocal	admin/detect-autoconf.sh	/^checkAutomakeAclocal ()$/;"	f
+checkWhich	admin/detect-autoconf.sh	/^checkWhich ()$/;"	f
+check_autotool_versions	admin/cvs.sh	/^check_autotool_versions()$/;"	f
+classifiers	src/classify.h	/^        std::list<int> classifiers();$/;"	p	class:Classify
+classify	src/classifier.cpp	/^QString Classifier::classify(const QString &)$/;"	f	class:Classifier
+classify	src/classifier.h	/^        virtual QString classify(const QString &text);$/;"	p	class:Classifier
+classify	src/classify.h	/^        QString classify(QString classifier, QString text);$/;"	p	class:Classify
+classify	src/dcop_classifier.cpp	/^QString DcopClassifier::classify(const QString &)$/;"	f	class:DcopClassifier
+classify	src/dcop_classifier.h	/^        QString classify(const QString &text);$/;"	p	class:DcopClassifier
+classify	src/dummy_classifier.cpp	/^QString DummyClassifier::classify(const QString &)$/;"	f	class:DummyClassifier
+classify	src/dummy_classifier.h	/^        QString classify(const QString &text);$/;"	p	class:DummyClassifier
+classify	src/klassify.cpp	/^QString klassify::classify(QString classifierId, QString text) {$/;"	f	class:klassify
+classify	src/klassify.h	/^        QString classify(QString classifierId, QString text);$/;"	p	class:klassify
+classify	src/naive_bayesian_classifier.cpp	/^QString NaiveBayesianClassifier::classify(const QString &text)$/;"	f	class:NaiveBayesianClassifier
+classify	src/naive_bayesian_classifier.h	/^        QString classify(const QString &text);$/;"	p	class:NaiveBayesianClassifier
+configure_files	admin/cvs.sh	/^configure_files()$/;"	f
+configure_in	admin/cvs.sh	/^configure_in()$/;"	f
+connect	configure	/^connect ();$/;"	f
+create_subdirs	admin/cvs.sh	/^create_subdirs()$/;"	f
+crypt	configure	/^crypt ();$/;"	f
+cvs	admin/cvs.sh	/^cvs()$/;"	f
+cvs_clean	admin/cvs.sh	/^cvs_clean()$/;"	f
+cvsclean	admin/cvs-clean.pl	/^sub cvsclean()$/;"	s
+dcopAddress	src/dcop_classifier.h	/^        QString dcopAddress;$/;"	m	class:DcopClassifier
+decreaseCount	src/category.cpp	/^void Category::decreaseCount(QString word) {$/;"	f	class:Category
+decreaseCount	src/category.h	/^        void decreaseCount(QString word);$/;"	p	class:Category
+description	src/main.cpp	/^static const char description[] =$/;"	v	file:
+diff_chunk	admin/bcheck.pl	/^sub diff_chunk($$)$/;"	s
+dist	admin/cvs.sh	/^dist()$/;"	f
+dld_link	configure	/^dld_link ();$/;"	f
+dlopen	configure	/^dlopen ();$/;"	f
+dnet_ntoa	configure	/^dnet_ntoa ();$/;"	f
+environ	debug/config.h	/^# define environ /;"	d
+exit	debug/src/klassify_stub.cpp	/^bool klassify_stub::exit()$/;"	f	class:klassify_stub
+exit	debug/src/klassify_stub.h	/^    virtual bool exit();$/;"	p	class:klassify_stub
+exit	src/klassify.cpp	/^bool klassify::exit()$/;"	f	class:klassify
+exit	src/klassify.h	/^		bool exit();$/;"	p	class:klassify
+forget	src/classifier.cpp	/^void Classifier::forget(QString, const QString &)$/;"	f	class:Classifier
+forget	src/classifier.h	/^        virtual void forget(QString category, const QString &text);$/;"	p	class:Classifier
+forget	src/classify.h	/^        void forget(QString classifier, QString category, QString text);$/;"	p	class:Classify
+forget	src/dcop_classifier.cpp	/^void DcopClassifier::forget(QString, const QString &)$/;"	f	class:DcopClassifier
+forget	src/dcop_classifier.h	/^        void forget(QString category, const QString &text);$/;"	p	class:DcopClassifier
+forget	src/dummy_classifier.cpp	/^void DummyClassifier::forget(QString category, const QString &)$/;"	f	class:DummyClassifier
+forget	src/dummy_classifier.h	/^        void forget(QString category, const QString &text);$/;"	p	class:DummyClassifier
+forget	src/naive_bayesian_classifier.cpp	/^void NaiveBayesianClassifier::forget(QString, const QString &)$/;"	f	class:NaiveBayesianClassifier
+forget	src/naive_bayesian_classifier.h	/^        void forget(QString category, const QString &text);$/;"	p	class:NaiveBayesianClassifier
+functions	debug/src/klassify_skel.cpp	/^QCStringList klassify::functions()$/;"	f	class:klassify
+getCategories	src/classifier.cpp	/^QStringList Classifier::getCategories()$/;"	f	class:Classifier
+getCategories	src/classifier.h	/^        QStringList getCategories();$/;"	p	class:Classifier
+getClassifiers	debug/src/klassify_stub.cpp	/^QStringList klassify_stub::getClassifiers()$/;"	f	class:klassify_stub
+getClassifiers	debug/src/klassify_stub.h	/^    virtual QStringList getClassifiers();$/;"	p	class:klassify_stub
+getClassifiers	src/klassify.cpp	/^QStringList klassify::getClassifiers()$/;"	f	class:klassify
+getClassifiers	src/klassify.h	/^		QStringList getClassifiers();$/;"	p	class:klassify
+getCount	src/category.cpp	/^int Category::getCount() {$/;"	f	class:Category
+getCount	src/category.cpp	/^int Category::getCount(QString word) {$/;"	f	class:Category
+getCount	src/category.h	/^        int getCount();$/;"	p	class:Category
+getCount	src/category.h	/^        int getCount(QString word);$/;"	p	class:Category
+getId	src/classifier.cpp	/^QString Classifier::getId()$/;"	f	class:Classifier
+getId	src/classifier.h	/^        QString getId();$/;"	p	class:Classifier
+getIdViaDcop	src/klassify.cpp	/^QString klassify::getIdViaDcop(QString dcopAddress)$/;"	f	class:klassify
+getIdViaDcop	src/klassify.h	/^        QString getIdViaDcop(QString dcopAddress);$/;"	p	class:klassify
+getName	src/category.cpp	/^QString Category::getName() {$/;"	f	class:Category
+getName	src/category.h	/^        QString getName();$/;"	p	class:Category
+getProbability	src/naive_bayesian_classifier.cpp	/^double NaiveBayesianClassifier::getProbability(QString category, const QStringList &text) {$/;"	f	class:NaiveBayesianClassifier
+getProbability	src/naive_bayesian_classifier.h	/^        double getProbability(QString category, const QStringList &text);$/;"	p	class:NaiveBayesianClassifier
+gethostbyname	configure	/^gethostbyname ();$/;"	f
+id	src/classifier.h	/^        QString id;$/;"	m	class:Classifier
+increaseCount	src/category.cpp	/^void Category::increaseCount(QString word) {$/;"	f	class:Category
+increaseCount	src/category.cpp	/^void Category::increaseCount(QString word, unsigned int count) {$/;"	f	class:Category
+increaseCount	src/category.h	/^        void increaseCount(QString word);$/;"	p	class:Category
+increaseCount	src/category.h	/^        void increaseCount(QString word, unsigned int count);$/;"	p	class:Category
+inet_ntoa	configure	/^inet_ntoa ();$/;"	f
+insert_command_loop	admin/conf.change.pl	/^sub insert_command_loop {$/;"	s
+insert_main_loop	admin/conf.change.pl	/^sub insert_main_loop {$/;"	s
+insert_main_loop_213	admin/conf.change.pl	/^sub insert_main_loop_213 {$/;"	s
+insert_main_loop_250	admin/conf.change.pl	/^sub insert_main_loop_250 {$/;"	s
+interfaces	debug/src/klassify_skel.cpp	/^QCStringList klassify::interfaces()$/;"	f	class:klassify
+killpg	configure	/^killpg ();$/;"	f
+klassify	src/klassify.cpp	/^klassify::klassify() : DCOPObject("serviceInterface")$/;"	f	class:klassify
+klassify	src/klassify.h	/^		klassify();$/;"	p	class:klassify
+klassify	src/klassify.h	/^class klassify :  public DCOPObject$/;"	c
+klassify_ftable	debug/src/klassify_skel.cpp	/^static const char* const klassify_ftable[7][3] = {$/;"	v	file:
+klassify_ftable_hiddens	debug/src/klassify_skel.cpp	/^static const int klassify_ftable_hiddens[6] = {$/;"	v	file:
+klassify_stub	debug/src/klassify_stub.cpp	/^klassify_stub::klassify_stub( DCOPClient* client, const QCString& app, const QCString& obj )$/;"	f	class:klassify_stub
+klassify_stub	debug/src/klassify_stub.cpp	/^klassify_stub::klassify_stub( const DCOPRef& ref )$/;"	f	class:klassify_stub
+klassify_stub	debug/src/klassify_stub.cpp	/^klassify_stub::klassify_stub( const QCString& app, const QCString& obj )$/;"	f	class:klassify_stub
+klassify_stub	debug/src/klassify_stub.h	/^    explicit klassify_stub( const DCOPRef& ref );$/;"	p	class:klassify_stub
+klassify_stub	debug/src/klassify_stub.h	/^    klassify_stub( DCOPClient* client, const QCString& app, const QCString& id );$/;"	p	class:klassify_stub
+klassify_stub	debug/src/klassify_stub.h	/^    klassify_stub( const QCString& app, const QCString& id );$/;"	p	class:klassify_stub
+klassify_stub	debug/src/klassify_stub.h	/^    klassify_stub() : DCOPStub( never_use ) {};$/;"	f	class:klassify_stub
+klassify_stub	debug/src/klassify_stub.h	/^class klassify_stub : virtual public DCOPStub$/;"	c
+ksize_t	debug/config.h	/^#define ksize_t /;"	d
+learn	src/classifier.cpp	/^bool Classifier::learn(QString, const QString &)$/;"	f	class:Classifier
+learn	src/classifier.h	/^        virtual bool learn(QString category, const QString &text);$/;"	p	class:Classifier
+learn	src/classify.h	/^        void learn(QString classifier, QString category, QString text);$/;"	p	class:Classify
+learn	src/dcop_classifier.cpp	/^bool DcopClassifier::learn(QString category, const QString &)$/;"	f	class:DcopClassifier
+learn	src/dcop_classifier.h	/^        bool learn(QString category, const QString &text);$/;"	p	class:DcopClassifier
+learn	src/dummy_classifier.cpp	/^bool DummyClassifier::learn(QString category, const QString &)$/;"	f	class:DummyClassifier
+learn	src/dummy_classifier.h	/^        bool learn(QString category, const QString &text);$/;"	p	class:DummyClassifier
+learn	src/klassify.cpp	/^bool klassify::learn(QString classifierId, QString category, QString text)$/;"	f	class:klassify
+learn	src/klassify.h	/^        bool learn(QString classifierId, QString category, QString text);$/;"	p	class:klassify
+learn	src/naive_bayesian_classifier.cpp	/^bool NaiveBayesianClassifier::learn(QString category, const QString &text)$/;"	f	class:NaiveBayesianClassifier
+m_Classifiers	src/klassify.h	/^		std::list<Classifier*> m_Classifiers;$/;"	m	class:klassify
+m_categories	src/naive_bayesian_classifier.h	/^        std::list<Category> m_categories;$/;"	m	class:NaiveBayesianClassifier
+m_count	src/category.h	/^        std::map<QString, int> m_count;$/;"	m	class:Category
+m_sum	src/category.h	/^        int m_sum;$/;"	m	class:Category
+main	admin/config.guess	/^		main()$/;"	f
+main	admin/config.guess	/^	main ()$/;"	f
+main	admin/config.guess	/^main ()$/;"	f
+main	src/main.cpp	/^int main (int argc, char *argv[])$/;"	f
+make_closure	admin/config.pl	/^sub make_closure {$/;"	s
+name	src/category.h	/^        QString name;$/;"	m	class:Category
+newfiles	admin/cvs-clean.pl	/^sub newfiles()$/;"	s
+operator ==	src/classifier.cpp	/^bool Classifier::operator==(Classifier other)$/;"	f	class:Classifier
+operator ==	src/classifier.h	/^        bool operator==(Classifier other);$/;"	p	class:Classifier
+options	src/main.cpp	/^static KCmdLineOptions options[] =$/;"	v	file:
+package_merge	admin/cvs.sh	/^package_merge()$/;"	f
+package_messages	admin/cvs.sh	/^package_messages()$/;"	f
+parse	src/naive_bayesian_classifier.cpp	/^QStringList NaiveBayesianClassifier::parse(const QString &text) {$/;"	f	class:NaiveBayesianClassifier
+parse	src/naive_bayesian_classifier.h	/^        QStringList parse(const QString &text);$/;"	p	class:NaiveBayesianClassifier
+patch_file	admin/config.pl	/^sub patch_file {$/;"	s
+poll	configure	/^poll ();$/;"	f
+process	debug/src/klassify_skel.cpp	/^bool klassify::process(const QCString &fun, const QByteArray &data, QCString& replyType, QByteArray &replyData)$/;"	f	class:klassify
+process_symbols	admin/nmcheck	/^sub process_symbols($\\@\\%\\@)$/;"	s
+process_symbols	admin/nmcheck	/^sub process_symbols($\\@\\%\\@);$/;"	s
+prototypes	configure	/^   function prototypes and stuff, but not '\\xHH' hex character constants.$/;"	f
+pthread_create	configure	/^pthread_create ();$/;"	f
+remove	configure	/^remove ();$/;"	f
+removeClassifier	debug/src/klassify_stub.cpp	/^bool klassify_stub::removeClassifier( QString arg0 )$/;"	f	class:klassify_stub
+removeClassifier	debug/src/klassify_stub.h	/^    virtual bool removeClassifier( QString dcopClassifier );$/;"	p	class:klassify_stub
+removeClassifier	src/klassify.cpp	/^bool klassify::removeClassifier(QString dcopClassifier)$/;"	f	class:klassify
+removeClassifier	src/klassify.h	/^		bool removeClassifier(QString dcopClassifierId);$/;"	p	class:klassify
+res_init	configure	/^      res_init();$/;"	f
+reset	src/classifier.cpp	/^void Classifier::reset()$/;"	f	class:Classifier
+reset	src/classifier.h	/^        virtual void reset();$/;"	p	class:Classifier
+reset	src/classify.h	/^        void reset();$/;"	p	class:Classify
+reset	src/dcop_classifier.cpp	/^void DcopClassifier::reset()$/;"	f	class:DcopClassifier
+reset	src/dcop_classifier.h	/^        void reset();$/;"	p	class:DcopClassifier
+reset	src/dummy_classifier.cpp	/^void DummyClassifier::reset()$/;"	f	class:DummyClassifier
+reset	src/dummy_classifier.h	/^        void reset();$/;"	p	class:DummyClassifier
+reset	src/naive_bayesian_classifier.cpp	/^void NaiveBayesianClassifier::reset()$/;"	f	class:NaiveBayesianClassifier
+reset	src/naive_bayesian_classifier.h	/^        void reset();$/;"	p	class:NaiveBayesianClassifier
+rmrf	admin/cvs-clean.pl	/^sub rmrf()$/;"	s
+shl_load	configure	/^shl_load ();$/;"	f
+shl_unload	configure	/^shl_unload ();$/;"	f
+shmat	configure	/^shmat ();$/;"	f
+snprintf	debug/config.h	/^int snprintf(char *str, size_t n, char const *fmt, ...);$/;"	p
+store	src/classifier.cpp	/^void Classifier::store(QString)$/;"	f	class:Classifier
+store	src/classifier.h	/^        virtual void store(QString filename);$/;"	p	class:Classifier
+store	src/classify.h	/^        void store();$/;"	p	class:Classify
+store	src/dcop_classifier.cpp	/^void DcopClassifier::store(QString)$/;"	f	class:DcopClassifier
+store	src/dcop_classifier.h	/^        void store(QString filename);$/;"	p	class:DcopClassifier
+store	src/dummy_classifier.cpp	/^void DummyClassifier::store(QString filename)$/;"	f	class:DummyClassifier
+store	src/dummy_classifier.h	/^        void store(QString filename);$/;"	p	class:DummyClassifier
+store	src/naive_bayesian_classifier.cpp	/^void NaiveBayesianClassifier::store(QString)$/;"	f	class:NaiveBayesianClassifier
+store	src/naive_bayesian_classifier.h	/^        void store(QString filename);$/;"	p	class:NaiveBayesianClassifier
+string	debug/src/klassify_stub.cpp	/^QString klassify_stub::string( int arg0 )$/;"	f	class:klassify_stub
+string	debug/src/klassify_stub.h	/^    virtual QString string( int  );$/;"	p	class:klassify_stub
+strip_makefile	admin/cvs.sh	/^strip_makefile()$/;"	f
+strlcat	debug/config.h	/^unsigned long strlcat(char*, const char*, unsigned long);$/;"	p
+strlcpy	debug/config.h	/^unsigned long strlcpy(char*, const char*, unsigned long);$/;"	p
+subdir_dist	admin/cvs.sh	/^subdir_dist()$/;"	f
+subdirs	admin/cvs.sh	/^subdirs()$/;"	f
+testCreation	src/naive_bayesian_classifier_test.cpp	/^void NaiveBayesianClassifierTest::testCreation()$/;"	f	class:NaiveBayesianClassifierTest
+testCreation	src/naive_bayesian_classifier_test.h	/^        void testCreation();$/;"	p	class:NaiveBayesianClassifierTest
+version	src/main.cpp	/^static const char version[] = "0.1";$/;"	v	file:
+vsnprintf	debug/config.h	/^int vsnprintf(char *str, size_t n, char const *fmt, va_list ap);$/;"	p
+win32_libid	admin/ltmain.sh	/^win32_libid () {$/;"	f
+win32_libid	debug/libtool	/^win32_libid () {$/;"	f
+~Classifier	src/classifier.h	/^        virtual ~Classifier() {};$/;"	f	class:Classifier
+~Classify	src/classify.h	/^        ~Classify();$/;"	p	class:Classify
+~klassify	src/klassify.cpp	/^klassify::~klassify()$/;"	f	class:klassify
+~klassify	src/klassify.h	/^		~klassify();$/;"	p	class:klassify
