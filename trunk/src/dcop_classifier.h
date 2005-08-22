@@ -7,7 +7,7 @@
 
 class DcopClassifier : public Classifier {
     public:
-        DcopClassifier(const QString &dcopAddress, const QString &filename);
+        DcopClassifier(const QString &dcopAddress);
 
         static QString getId(const QString &dcopAddress);
 

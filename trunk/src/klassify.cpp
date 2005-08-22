@@ -1,8 +1,8 @@
 #include "klassify.h"
 
-// TODO: make this some kind of factory
 #include "dcop_classifier.h"
 #include "naive_bayesian_classifier.h"
+#include "filemanager.h"
 
 #include <kdebug.h>
 #include <kapplication.h>
@@ -10,6 +10,8 @@
 #include <kglobal.h>
 
 #include <qstringlist.h>
+
+#define MIN_RATIO_REJECTED 0.9
 
 klassify::klassify() : DCOPObject("serviceInterface")
 {
@@ -89,6 +91,7 @@ bool klassify::learn(const QString &classifierId, const QString &applicationId, 
     }
 
     kdDebug() << "Sending learn call to classifier " << classifierId << endl;
+    FileManager::getInstance()->addCategory(category, classificationTask);
     bool ret = classifier->learn(category, text);
     if(!storeLater && ret) {
         classifier->store();
@@ -116,21 +119,60 @@ bool klassify::forget(const QString &classifierId, const QString &applicationId,
 
 
 
-QString klassify::classify(const QString &classifierId, const QString &applicationId, const QString &text) {
+QString klassify::classify(const QString &classifierId, const QString &applicationId, const QString &text)
+{
+    double minProbability = std::numeric_limits<long double>::max();
+    double minRatio = 1;
+//    double eProb = std::exp(-1 * probability);
+
+    QString result = CATEGORY_UNKNOWN;
+    QMap<QString,double> probabilities = getProbabilities(classifierId, applicationId, text);
+    kdDebug() << "Probability distribution after classification:" << endl;
+    QValueList<QString> categories = probabilities.keys();
+    for( QValueList<QString>::const_iterator it = categories.constBegin(); it != categories.constEnd(); ++it )
+    {
+        kdDebug() << *it << " = " << probabilities[*it] << endl;
+        if(probabilities[*it] < minProbability)
+        {
+            minRatio = probabilities[*it] / minProbability;
+            kdDebug() << "setting ratio to " << minRatio << endl;
+            result = *it;
+            minProbability = probabilities[*it];
+        } else if(minProbability / probabilities[*it] > minRatio)
+        {
+            minRatio = minProbability / probabilities[*it];
+            kdDebug() << "setting ratio to " << minRatio << endl;
+        }
+    }
+    
+    // TODO: this is only a poor heuristic
+    QString end = minRatio > MIN_RATIO_REJECTED ? CATEGORY_REJECTED : result;
+    return end;
+}
+
+
+QStringList klassify::classifyNBest(const QString &classifierId, const QString &applicationId, const QString &text)
+{
+    // TODO: implementation
+    return QStringList();
+}
+
+QMap<QString,double> klassify::getProbabilities(const QString &classifierId, const QString &applicationId, const QString &text)
+{
     ClassificationTask classificationTask = ClassificationTask(classifierId, applicationId);
     Classifier* classifier = 0;
     if( !m_classifiers.contains(classificationTask) )
     {
         kdWarning() << "classifier " << classifierId << " not yet created for application " << applicationId << endl;
-        return CATEGORY_UNKNOWN;
+        QMap<QString,double> unknown = QMap<QString,double>();
+        unknown.insert(CATEGORY_UNKNOWN, 1);
+        return unknown;
     }
 
     classifier = m_classifiers[classificationTask];
 
     kdDebug() << "Sending classification call to classifier " << classifierId << endl;
-    QString category = classifier->classify(text);
-    kdDebug() << "got reply: category " << category << endl;
-    return category;
+    return classifier->getProbabilities(text);
 }
 
 

@@ -6,7 +6,7 @@
 class DbaclClassifier : public Classifier
 {
     public:
-        DbaclClassifier(const QStringList &categories, const QString &filename);
+        DbaclClassifier();
 
         using Classifier::learn;
         bool learn(const QString &category, const QString &text);
@@ -14,7 +14,7 @@ class DbaclClassifier : public Classifier
         static QString getId();
         static bool available();
 
-        QString classify(const QString &text);
+        QMap<QString,double> getProbabilities(const QString &text);
 
         void store();
         void reset();

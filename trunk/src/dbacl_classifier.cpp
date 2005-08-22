@@ -12,7 +12,7 @@
 #include <qtextstream.h>
 #include <qregexp.h>
 
-DbaclClassifier::DbaclClassifier(const QStringList &categories, const QString &filename) : Classifier(categories, filename)
+DbaclClassifier::DbaclClassifier() : Classifier()
 {
     kdDebug() << "DbaclClassifier created" << endl;
 }
@@ -21,7 +21,7 @@ bool DbaclClassifier::learn(const QString &category, const QString &text)
 {
     kdDebug() << "dbacl learns text in " << category << " category" << endl;
 
-    QString dumpFile = getFilename() + "/" + FileManager::getInstance()->getFilename(category) + ".txt";
+    QString dumpFile = getDirectory() + "/" + getFilename(category) + ".txt";
     QFile out(dumpFile);
     out.open(IO_WriteOnly | IO_Append);
     QTextStream stream(&out);
@@ -50,81 +50,77 @@ bool DbaclClassifier::available()
     return dbacl->start();
 }
 
-QString DbaclClassifier::classify(const QString &text)
+QMap<QString,double> DbaclClassifier::getProbabilities(const QString &text)
 {
-    QString result = CATEGORY_UNKNOWN;
-
-    QDir dir(getFilename());
-    QStringList categories = dir.entryList();
-
-    // TODO: keep track of known categories elsewhere
-    categories = categories.grep( "dbacl" );
+    QMap<QString,double> result = QMap<QString,double>();
 
     KProcIO *dbacl = new KProcIO();
-    dbacl->setWorkingDirectory(getFilename());
+    dbacl->setWorkingDirectory(getDirectory());
 
     *dbacl << "dbacl";
     *dbacl << "-U";
 
+    QStringList categories = getCategories();
     for( QStringList::Iterator it = categories.begin(); it != categories.end(); ++it )
     {
-        *dbacl << "-c" << *it;
+        *dbacl << "-c" << getFilename(*it);
     }
 
     dbacl->start(KProcess::NotifyOnExit, false);
     if( !dbacl->writeStdin(text) )
     {
         kdWarning() << "Couldn't transmit text to dbacl. Exiting." << endl;
+        result.clear();
+        result.insert(CATEGORY_UNKNOWN, 1);
         return result;
     }
 
     dbacl->closeStdin();
     dbacl->wait(5);
-    dbacl->readln(result);
+    QString line;
+    dbacl->readln(line);
 
-    kdDebug() << "dbacl classified " << text << " as " << result << endl;
+    kdDebug() << "dbacl classified " << text << " as " << line << endl;
 
-    QTextStream stream(result, IO_ReadOnly);
+    QTextStream stream(line, IO_ReadOnly);
     QString category;
     QString sharp;
     float percent;
     stream >> category;
     stream >> sharp;
     stream >> percent;
+    category = getCategory(category);
     kdDebug() << "Found the category " << category << " in dbacl result (" << percent << ")" << endl;
 
     if( percent >= 50)
     {
-        QString name = category.left(category.length() - 6);
-        QString cat = FileManager::getInstance()->getCategory(name);
-        if( cat == QString::null )
+        if( category == QString::null )
         {
             kdWarning() << "The filename " << category << " is not a known category" << endl;
-            return CATEGORY_UNKNOWN;
+            result.clear();
+            result.insert(CATEGORY_UNKNOWN, 1);
         }
-        return cat;
+
+        result.insert(category, percent / 100);
+        return result;
     }
 
-    return CATEGORY_REJECTED;
+    result.clear();
+    result.insert(CATEGORY_REJECTED, 1);
+    return result;
 }
 
 void DbaclClassifier::store()
 {
-    QDir dir(getFilename());
-    QStringList categories = dir.entryList();
-    QRegExp pattern("txt$");
-    categories = categories.grep( pattern );
-
+    QStringList categories = getCategories();
     for( QStringList::Iterator it = categories.begin(); it != categories.end(); ++it )
     {
         KProcIO *dbacl = new KProcIO();
-        dbacl->setWorkingDirectory(getFilename());
-
-        QString dbaclFile = *it;
-        dbaclFile.replace("txt", "dbacl");
+        dbacl->setWorkingDirectory(getDirectory());
 
         *dbacl << "dbacl";
-        *dbacl << "-l" << dbaclFile << *it;
+        QString dumpFile = getFilename(*it) + ".txt";
+        *dbacl << "-l" << getFilename(*it) << dumpFile;
 
         kdDebug() << "Full learning category " << *it << endl;
 

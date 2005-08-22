@@ -6,7 +6,7 @@
 
 #include <qcstring.h>
 
-DcopClassifier::DcopClassifier(const QString &dcopAddress, const QString &filename) : Classifier(dcopAddress, filename)
+DcopClassifier::DcopClassifier(const QString &dcopAddress) : Classifier()
 {
     this->dcopAddress = dcopAddress;
     kdDebug() << "DcopClassifier created" << endl;

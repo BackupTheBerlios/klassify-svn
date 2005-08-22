@@ -9,15 +9,13 @@
 #include <limits>
 #include <algorithm>
 
-#define MIN_RATIO_REJECTED 0.9
 #define MIN_CLASS_OCCURRENCE 0.1
 
-NaiveBayesianClassifier::NaiveBayesianClassifier(const QStringList &categories, const QString &filename) 
-    : Classifier(categories, filename)
+NaiveBayesianClassifier::NaiveBayesianClassifier(const QString &filename)  : Classifier()
 {
     kdDebug() << "Creating NaiveBayesianClassifer" << endl;
 
-    database = c4_Storage(getFilename(), true);
+    database = c4_Storage(filename, true);
     database.AutoCommit();
 
     m_categories = QMap<QString, c4_View>();
@@ -42,36 +40,6 @@ QString NaiveBayesianClassifier::getId() {
     return "de.berlios.klassify.classifiers.NaiveBayesianClassifier";
 }
 
-QString NaiveBayesianClassifier::classify(const QString &text)
-{
-    double minProbability = std::numeric_limits<long double>::max();
-    double minRatio = 1;
-//    double eProb = std::exp(-1 * probability);
-
-    QString result = CATEGORY_UNKNOWN;
-    QMap<QString,double> probabilities = getProbabilities(text);
-    kdDebug() << "Probability distribution after classification:" << endl;
-    QValueList<QString> categories = m_categories.keys();
-    for( QValueList<QString>::const_iterator it = categories.constBegin(); it != categories.constEnd(); ++it )
-    {
-        kdDebug() << *it << " = " << probabilities[*it] << endl;
-        if(probabilities[*it] < minProbability)
-        {
-            minRatio = probabilities[*it] / minProbability;
-            kdDebug() << "setting ratio to " << minRatio << endl;
-            result = *it;
-            minProbability = probabilities[*it];
-        } else if(minProbability / probabilities[*it] > minRatio)
-        {
-            minRatio = minProbability / probabilities[*it];
-            kdDebug() << "setting ratio to " << minRatio << endl;
-        }
-    }
-    
-    // TODO: this is only a poor heuristic
-    QString end = minRatio > MIN_RATIO_REJECTED ? CATEGORY_REJECTED : result;
-    return end;
-}
 
 bool NaiveBayesianClassifier::learn(const QString &category, const QString &text)
 {

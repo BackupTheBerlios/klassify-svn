@@ -1,17 +1,10 @@
 #include "classifier.h"
+#include "filemanager.h"
 
 #include <kdebug.h>
 
-Classifier::Classifier()
-{
 
-}
-
-Classifier::Classifier(const QStringList &categories, const QString &filename)
-{
-    this->categories = categories;
-    this->filename = filename;
-}
+Classifier::Classifier() {}
 
 bool Classifier::operator==(Classifier other)
 {
@@ -27,13 +20,15 @@ QString Classifier::getId()
 
 QStringList Classifier::getCategories()
 {
-    return categories;
+    QString directory = FileManager::getInstance()->getDirectory(m_classificationTask);
+    return FileManager::getInstance()->getCategories(directory);
 }
 
 
-QString Classifier::getFilename()
+QString Classifier::getFilename(const QString &category)
 {
-    return filename;
+    QString directory = FileManager::getInstance()->getDirectory(m_classificationTask);
+    return FileManager::getInstance()->getFilename(directory, category);
 }
 
 
@@ -49,9 +44,9 @@ bool Classifier::forget(const QString &, const QString &)
 }
 
 
-QString Classifier::classify(const QString &)
+QMap<QString, double> Classifier::getProbabilities(const QString &)
 {
-    return 0;
+    return QMap<QString, double>();
 }
 
 void Classifier::store()
@@ -62,3 +57,31 @@ void Classifier::reset()
 {
 
 }
+
+
+QString Classifier::getDirectory()
+{
+    return FileManager::getInstance()->getPath() + "/" + FileManager::getInstance()->getDirectory(m_classificationTask);
+}
+
+
+void Classifier::setClassificationTask(ClassificationTask classificationTask)
+{
+    m_classificationTask = classificationTask;
+}
+
+
+QString Classifier::getCategory(const QString &filename)
+{
+    QStringList categories = getCategories();
+    for(QStringList::ConstIterator it = categories.constBegin(); it != categories.constEnd(); ++it)
+    {
+        if(getFilename(*it) == filename)
+        {
+            return *it;
+        }
+    }
+
+    return QString::null;
+}
+

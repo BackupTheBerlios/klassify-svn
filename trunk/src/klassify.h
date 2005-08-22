@@ -23,7 +23,7 @@ class klassify :  public DCOPObject
         #define CATEGORY_REJECTED "klassify::rejected"
         #define CATEGORY_UNKNOWN "klassify::unknown"
 
-	k_dcop:
+   	k_dcop:
 		QStringList getClassifiers();
 
 		void addClassifier(const QString &dcopAddress);
@@ -37,6 +37,10 @@ class klassify :  public DCOPObject
         void store(const QString &classifierId, const QString &applicationId);
 
         QString classify(const QString &classifierId, const QString &applicationId, const QString &text);
+
+        QStringList classifyNBest(const QString &classifierId, const QString &applicationId, const QString &text);
+
+        QMap<QString,double> getProbabilities(const QString &classifierId, const QString &applicationId, const QString &text);
 
 		bool exit();
 

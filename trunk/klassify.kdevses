@@ -1,19 +1,25 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <!DOCTYPE KDevPrjSession>
 <KDevPrjSession>
- <DocsAndViews NumberOfDocuments="4" >
-  <Doc0 NumberOfViews="1" URL="file:///home/dennis/klassify/trunk/src/dbacl_classifier.cpp" >
-   <View0 Type="Source" />
+ <DocsAndViews NumberOfDocuments="6" >
+  <Doc0 NumberOfViews="1" URL="file:///home/dennis/klassify/trunk/src/klassify.cpp" >
+   <View0 line="187" Type="Source" />
   </Doc0>
-  <Doc1 NumberOfViews="1" URL="file:///home/dennis/klassify/trunk/src/classifier.cpp" >
+  <Doc1 NumberOfViews="1" URL="file:///home/dennis/klassify-berlios/trunk/src/klassify.h" >
    <View0 Type="Source" />
   </Doc1>
-  <Doc2 NumberOfViews="1" URL="file:///home/dennis/klassify/trunk/src/dbacl_classifier.h" >
-   <View0 Type="Source" />
+  <Doc2 NumberOfViews="1" URL="file:///home/dennis/klassify-berlios/trunk/src/dbacl_classifier.cpp" >
+   <View0 line="14" Type="Source" />
   </Doc2>
-  <Doc3 NumberOfViews="1" URL="file:///home/dennis/klassify/trunk/src/klassify.cpp" >
-   <View0 line="3" Type="Source" />
+  <Doc3 NumberOfViews="1" URL="file:///home/dennis/klassify-berlios/trunk/src/filemanager.h" >
+   <View0 line="18" Type="Source" />
   </Doc3>
+  <Doc4 NumberOfViews="1" URL="file:///home/dennis/klassify-berlios/trunk/src/filemanager.cpp" >
+   <View0 line="116" Type="Source" />
+  </Doc4>
+  <Doc5 NumberOfViews="1" URL="file:///home/dennis/klassify-berlios/trunk/src/classifier.cpp" >
+   <View0 line="53" Type="Source" />
+  </Doc5>
  </DocsAndViews>
  <pluginList>
   <kdevdebugger>

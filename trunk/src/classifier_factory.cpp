@@ -19,9 +19,11 @@ Classifier* ClassifierFactory::produceClassifier( const ClassificationTask &clas
 {
     if( classificationTask.getClassifierId() == "de.berlios.klassify.classifiers.NaiveBayesianClassifier" )
     {
-        QString filename = FileManager::getInstance()->getFilename( classificationTask );
+        QString filename = FileManager::getInstance()->getDirectory(classificationTask) + "/database.db";
         kdDebug() << "Factory creates new NaiveBayesianClassifier with filename " << filename << endl;
-        return new NaiveBayesianClassifier( 0, filename );
+        NaiveBayesianClassifier* classifier = new NaiveBayesianClassifier(filename);
+        classifier->setClassificationTask(classificationTask);
+        return classifier;
     }
 
     if( classificationTask.getClassifierId() == "com.lbreyer.classifiers.dbacl" )
@@ -29,13 +31,17 @@ Classifier* ClassifierFactory::produceClassifier( const ClassificationTask &clas
         if( !DbaclClassifier::available() )
         {
             kdWarning() << "dbacl can't be started, is it installed properly? Using dummy classifier instead" << endl;
-            return new Classifier();
+            Classifier* classifier = new Classifier();
+            classifier->setClassificationTask(classificationTask);
+            return classifier;
         }
         else
         {
             QString dir = FileManager::getInstance()->getDirectory( classificationTask );
             kdDebug() << "Factory creates new DbaclClassifier with directory " << dir << endl;
-            return new DbaclClassifier( 0, dir );
+            DbaclClassifier* dbacl = new DbaclClassifier();
+            dbacl->setClassificationTask(classificationTask);
+            return dbacl;
         }
     }
 
