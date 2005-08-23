@@ -22,7 +22,7 @@
   <kdevautoproject>
     <general>
       <useconfiguration>debug</useconfiguration>
-      <activetarget>src/klassify</activetarget>
+      <activetarget>src/tests/tests</activetarget>
     </general>
     <configurations>
       <optimized>

@@ -18,6 +18,9 @@ class DbaclClassifier : public Classifier
 
         void store();
         void reset();
+
+    private:
+        QString getDumpFile(const QString &category);
 };
 
 #endif // DBACL_CLASSIFIER_H

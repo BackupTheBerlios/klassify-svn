@@ -22,13 +22,12 @@ klassify::klassify() : DCOPObject("serviceInterface")
 
 klassify::~klassify()
 {
-    // TODO: delete classifiers
     kdDebug() << "Stopping klassify... " << endl;
-/*    std::list<Classifier*>::iterator it;
-    for(it=m_Classifiers.begin(); it!=m_Classifiers.end(); it++)
+    QMap<ClassificationTask, Classifier*>::Iterator it;
+    for(it=m_classifiers.begin(); it!=m_classifiers.end(); it++)
     {
         delete *it;
-    }*/
+    }
 }
 
 QStringList klassify::getClassifiers()
@@ -123,7 +122,6 @@ QString klassify::classify(const QString &classifierId, const QString &applicati
 {
     double minProbability = std::numeric_limits<long double>::max();
     double minRatio = 1;
-//    double eProb = std::exp(-1 * probability);
 
     QString result = CATEGORY_UNKNOWN;
     QMap<QString,double> probabilities = getProbabilities(classifierId, applicationId, text);

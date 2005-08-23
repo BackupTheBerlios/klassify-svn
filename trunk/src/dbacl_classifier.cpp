@@ -21,7 +21,7 @@ bool DbaclClassifier::learn(const QString &category, const QString &text)
 {
     kdDebug() << "dbacl learns text in " << category << " category" << endl;
 
-    QString dumpFile = getDirectory() + "/" + getFilename(category) + ".txt";
+    QString dumpFile = getDumpFile(category);
     QFile out(dumpFile);
     out.open(IO_WriteOnly | IO_Append);
     QTextStream stream(&out);
@@ -31,10 +31,33 @@ bool DbaclClassifier::learn(const QString &category, const QString &text)
     return true;
 }
 
-bool DbaclClassifier::forget(const QString &/*category*/, const QString &/*text*/)
+bool DbaclClassifier::forget(const QString &category, const QString &text)
 {
-    // TODO: this is not true due to dumpFile
-    kdWarning() << "dbacl does not support unlearning" << endl;
+    // FIXME: There is probably an easier way to remove a string from a textfile.
+    QString forgetText = text;
+    QFile in(getDumpFile(category));
+    if(in.open(IO_ReadOnly))
+    {
+        QTextStream input(&in);
+        KSaveFile out(getDumpFile(category));
+        QTextStream* output = out.textStream();
+        QString line;
+        while(!in.atEnd())
+        {
+            line = input.readLine();
+            if(forgetText.contains(line)) 
+            {
+                forgetText.replace(line, "");
+            }
+            else
+            {
+                *output << line << "\n";
+            }
+        }
+        in.close();
+        return out.close();
+    }
+
     return false;
 }
 
@@ -119,7 +142,7 @@ void DbaclClassifier::store()
         dbacl->setWorkingDirectory(getDirectory());
 
         *dbacl << "dbacl";
-        QString dumpFile = getFilename(*it) + ".txt";
+        QString dumpFile = getDumpFile(*it);
         *dbacl << "-l" << getFilename(*it) << dumpFile;
 
         kdDebug() << "Full learning category " << *it << endl;
@@ -132,4 +155,10 @@ void DbaclClassifier::store()
 void DbaclClassifier::reset()
 {
     // TODO: implementation
+}
+
+
+QString DbaclClassifier::getDumpFile(const QString &category)
+{
+    return getDirectory() + "/" + getFilename(category) + ".txt";
 }
